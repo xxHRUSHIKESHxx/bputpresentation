@@ -15,7 +15,7 @@ export const getPosts = (req, res) => {
 
 export const getPost = (req, res) => {
   const q =
-    "SELECT p.id, `username`, `title`, `desc`, p.img, u.img AS userImg, `cat`,`date` FROM users u JOIN posts p ON u.id = p.uid WHERE p.id = ? ";
+    "SELECT p.id, `username`, `title`, `desc`, p.img, u.img AS userImg, `cat`,`date`,`phone` FROM users u JOIN posts p ON u.id = p.uid WHERE p.id = ? ";
 
   db.query(q, [req.params.id], (err, data) => {
     if (err) return res.status(500).json(err);
@@ -27,7 +27,6 @@ export const getPost = (req, res) => {
 export const addPost = (req, res) => {
   console.log(req.body);
   const token = req.body?.token;
-  console.log("token : ", token);
   if (!token)
     return res
       .status(401)
@@ -37,7 +36,7 @@ export const addPost = (req, res) => {
     if (err) return res.status(403).json("Token is not valid!");
 
     const q =
-      "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `date`,`uid`) VALUES (?)";
+      "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `date`,`uid` , `phone`) VALUES (?)";
 
     const values = [
       req.body.title,
@@ -46,10 +45,14 @@ export const addPost = (req, res) => {
       req.body.cat,
       req.body.date,
       userInfo.id,
+      req.body.phone,
     ];
 
     db.query(q, [values], (err, data) => {
-      if (err) return res.status(500).json(err);
+      if (err) {
+        console.log(err);
+        return res.status(500).json(err);
+      }
       return res.json("Post has been created.");
     });
   });
@@ -83,9 +86,9 @@ export const updatePost = (req, res) => {
 
     const postId = req.params.id;
     const q =
-      "UPDATE posts SET `title`=?,`desc`=?,`img`=?,`cat`=? WHERE `id` = ? AND `uid` = ?";
+      "UPDATE posts SET `title`=?,`desc`=?,`img`=?,`cat`=? , `phone`=?  WHERE `id` = ? AND `uid` = ?";
 
-    const values = [req.body.title, req.body.desc, req.body.img, req.body.cat];
+    const values = [req.body.title, req.body.desc, req.body.img, req.body.cat , req.body.phone];
 
     db.query(q, [...values, postId, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);

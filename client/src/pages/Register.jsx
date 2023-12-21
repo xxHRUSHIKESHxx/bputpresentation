@@ -33,8 +33,6 @@ const Register = () => {
     }
   };
 
-  // console.log(inputs);
-  // console.log(inputs.username)
 
   return (
     <div className="auth">

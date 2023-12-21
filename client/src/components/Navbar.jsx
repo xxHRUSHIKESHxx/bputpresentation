@@ -16,23 +16,23 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="links">
-          <Link className="link" to="/?cat=art">
-            <h6>ART</h6>
+          <Link className="link" to="/?cat=education">
+            <h6>EDUCATION</h6>
           </Link>
-          <Link className="link" to="/?cat=science">
-            <h6>SCIENCE</h6>
+          <Link className="link" to="/?cat=poverty">
+            <h6>POVERTY</h6>
           </Link>
-          <Link className="link" to="/?cat=technology">
-            <h6>TECHNOLOGY</h6>
+          <Link className="link" to="/?cat=animal">
+            <h6>ANIMAL</h6>
           </Link>
-          <Link className="link" to="/?cat=cinema">
-            <h6>CINEMA</h6>
+          <Link className="link" to="/?cat=disaster">
+            <h6>DISASTER</h6>
           </Link>
-          <Link className="link" to="/?cat=design">
-            <h6>DESIGN</h6>
+          <Link className="link" to="/?cat=empowerment">
+            <h6>EMPOWERMENT</h6>
           </Link>
-          <Link className="link" to="/?cat=food">
-            <h6>FOOD</h6>
+          <Link className="link" to="/?cat=healthcare">
+            <h6>HEALTHCARE</h6>
           </Link>
           <span>{currentUser?.username}</span>
           {currentUser ? (

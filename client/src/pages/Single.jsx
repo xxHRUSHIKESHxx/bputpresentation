@@ -21,7 +21,7 @@ const Single = () => {
   const { authToken } = useContext(AuthContext)
 
   // console.log(currentUser);
-  console.log(authToken);
+  // console.log(authToken);
   // console.log(currentUser.password)
 
   const is_user_exist = currentUser;
@@ -32,7 +32,7 @@ const Single = () => {
         const res = await axios.get(
           `http://localhost:8000/api/posts/${postId}`
         );
-        console.log("showing data from singles page");
+        console.log("showing data from singles page" , res.data);
         setPost(res.data);
       } catch (err) {
         console.log(err);
@@ -82,6 +82,8 @@ const Single = () => {
            ) : null  }  
         </div>
         <h1>{post.title}</h1>
+        {/* <h3> phone number to contact : {post.phone}</h3> */}
+        <h3> phone number to contact :  <a href={`tel:${post.phone}`}>{post.phone}</a> </h3>
         <p
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(post.desc),
