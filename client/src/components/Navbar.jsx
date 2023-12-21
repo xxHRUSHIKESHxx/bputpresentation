@@ -8,6 +8,7 @@ const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
 
   return (
+    
     <div className="navbar">
       <div className="container">
         <div className="logo">
@@ -17,7 +18,7 @@ const Navbar = () => {
         </div>
         <div className="links">
           <Link className="link" to="/?cat=education">
-            <h6>EDUCATION</h6>
+            <h6>vromss</h6>
           </Link>
           <Link className="link" to="/?cat=poverty">
             <h6>POVERTY</h6>
