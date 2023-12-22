@@ -36,8 +36,9 @@ const Register = () => {
 
   return (
     <div className="auth">
-      <h1>Register</h1>
+     
       <form>
+      <h1>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Register</h1>
         <input
           required
           type="text"
@@ -61,8 +62,8 @@ const Register = () => {
         />
         <button onClick={handleSubmit}>Register</button>
         {err && <p>{err}</p>}
-        <span>
-          Do you have an account? <Link to="/login">Login</Link>
+        <span style={{color:"whitesmoke"}}>
+          Do you have an account? <Link to="/login"><h4 style={{color:"white"}}>Login</h4></Link>
         </span>
       </form>
     </div>

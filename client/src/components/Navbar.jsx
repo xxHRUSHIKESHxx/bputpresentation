@@ -18,7 +18,7 @@ const Navbar = () => {
         </div>
         <div className="links">
           <Link className="link" to="/?cat=education">
-            <h6>vromss</h6>
+            <h6>EDUCATION</h6>
           </Link>
           <Link className="link" to="/?cat=poverty">
             <h6>POVERTY</h6>
@@ -35,12 +35,12 @@ const Navbar = () => {
           <Link className="link" to="/?cat=healthcare">
             <h6>HEALTHCARE</h6>
           </Link>
-          <span>{currentUser?.username}</span>
+          <span style={{color:"white"}}>user({currentUser?.username})</span>
           {currentUser ? (
-            <span onClick={logout}>Logout</span>
+            <span onClick={logout} id="y11" >Logout</span>
           ) : (
             <Link className="link" to="/login">
-              Login
+              <h5 style={{color:"white"}}>Login</h5>
             </Link>
           )}
           <span className="write">

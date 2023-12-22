@@ -64,11 +64,11 @@ const Single = () => {
       <div className="content">
         <img src={`../upload/${post?.img}`} alt="" />
         {/* ../upload/ */}
-        <div className="user">
+        <div className="user" style={{color:"whitesmoke"}}>
           {post.userImg && <img src={post.userImg} alt="" />}
           <div className="info">
             <span>{post.username}</span>
-            <p>Posted {moment(post.date).fromNow()}</p>
+            <p style={{color:"whitesmoke"}}>Posted {moment(post.date).fromNow()}</p>
           </div>
           { is_user_exist ? (
           currentUser.username === post.username && (
@@ -80,14 +80,15 @@ const Single = () => {
           </div>
            )
            ) : null  }  
+          
         </div>
         <h1>{post.title}</h1>
         {/* <h3> phone number to contact : {post.phone}</h3> */}
-        <h3> phone number to contact :  <a href={`tel:${post.phone}`}>{post.phone}</a> </h3>
+        <h3 style={{color:"whitesmoke"}}> phone number to contact :  <a href={`tel:${post.phone}`}>{post.phone}</a> </h3>
         <p
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(post.desc),
-          }}
+          }} style={{color:"whitesmoke"}}
         ></p>{" "}
       </div>
       <Menu cat={post.cat}  />

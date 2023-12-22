@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer>
       <img src={blogFooter} alt="" />
-      <span>
-        Created By Dev Dhal and Sumitra Bhoi
+      <span style={{color:"white"}}>
+        Created By ➡️(BSH-GROUP)
       </span>
     </footer>
   );

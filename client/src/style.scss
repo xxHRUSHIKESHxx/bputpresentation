@@ -4,6 +4,7 @@ $lightOrange: #abc1c4;
 .app {
   display: flex;
   justify-content: center;
+  background-color: #181818;
   .container {
     width: 1024px;
 
@@ -19,11 +20,16 @@ $lightOrange: #abc1c4;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-color: $lightOrange;
-
+margin-top: 2rem;
+  
+     
+    background-repeat: no-repeat;
+  
+    background-size: 100%;
+      background-image: url("https://img.freepik.com/premium-photo/hands-old-man-child-s-hand-wood-table-vintage-tonexa_71455-581.jpg");
       h1 {
         font-size: 20px;
-        color: #3d3a38;
+        color: #ffffff;
         margin-bottom: 20px;
       }
 
@@ -31,14 +37,16 @@ $lightOrange: #abc1c4;
         display: flex;
         flex-direction: column;
         padding: 50px;
-        background-color: white;
-        width: 200px;
+        background-color: rgba(91, 91, 91, 0.684);
+        width: 200px ;
+        border-radius: 5%;
         gap: 20px;
+        position: absolute;
 
         input {
           padding: 10px;
           border: none;
-          border-bottom: 1px solid gray;
+          border-bottom: 1px solid rgb(235, 235, 235);
         }
 
         button {
@@ -70,40 +78,86 @@ $lightOrange: #abc1c4;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background-color: #383838c7;
+        border-radius: 6px;
+        
+    
         .logo {
           img {
             width: 120px;
+            margin-left: 2rem;
           }
         }
+    
         .links {
           display: flex;
           align-items: center;
           gap: 10px;
-
+          
+         
+    
           h6 {
             font-size: 16px;
-            font-weight: 300;
+            font-weight: 700;
+            transition:  transform 1s;
+            color: white;
+            position: relative;
+            overflow: hidden;
+          
+            &:hover {
+              color: #414141;
+              transform: scale(1);
+              
+              background-color: rgb(255, 255, 255);
+              border-radius: 15%;
+              animation: glow 1s infinite alternate; /* Added glow animation */
+            }
+          
+            @keyframes glow {
+              0% {
+                box-shadow: 0 0 0px #727070;
+              }
+              100% {
+                box-shadow: 0 0 10px #c0c0c0, 0 0 20px #dedddb, 0 0 30px #ffffff;
+              }
+            }
           }
-
-          span {
-            cursor: pointer;
-          }
-
-          .write {
-            background-color: $lightOrange;
-            width: 50px;
+          
+       #y11{
+                background-color: rgb(247, 247, 247);
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100%;
+                transition: 0.5s;
+                border: 1px solid white;
+       }
+       #y11:hover{
+        background-color: rgb(222, 18, 18);
+        height: 40px;
+        color: whitesmoke;
+        
+        border-radius: 40%;
+        border: 1px solid rgb(255, 253, 253);
+       }
+     
+      
+          .write { background-color: rgb(247, 247, 247);
             height: 50px;
-            border-radius: 50%;
+            width: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 300;
+            border-radius: 100%;
+            transition: 0.5s;
             border: 1px solid white;
-
             &:hover {
-              color: #292e2f;
-              background-color: white;
-              border: 1px solid #292e2f;
+              background-color: rgb(32, 222, 18);
+              height: 40px;
+              color: whitesmoke;
+              border-radius: 40%;
+              border: 1px solid rgb(255, 249, 249);
             }
           }
         }
@@ -115,7 +169,7 @@ $lightOrange: #abc1c4;
     footer {
       margin-top: 100px;
       padding: 20px;
-      background-color: $lightOrange;
+      background-color: #383838c7;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -138,6 +192,7 @@ $lightOrange: #abc1c4;
         .post {
           display: flex;
           gap: 100px;
+
 
           &:nth-child(2n + 1) {
             flex-direction: row-reverse;
@@ -174,10 +229,12 @@ $lightOrange: #abc1c4;
 
             h1 {
               font-size: 48px;
+              color: white;
             }
 
             p {
               font-size: 18px;
+              color: white;
             }
 
             button {
@@ -216,6 +273,7 @@ $lightOrange: #abc1c4;
           width: 100%;
           height: 300px;
           object-fit: cover;
+          margin-top: 1rem;
         }
 
         .user {
@@ -248,7 +306,7 @@ $lightOrange: #abc1c4;
 
         h1 {
           font-size: 42px;
-          color: #333;
+          color: #efecec;
         }
 
         p {
@@ -261,10 +319,11 @@ $lightOrange: #abc1c4;
         display: flex;
         flex-direction: column;
         gap: 25px;
+        margin-top: 1rem;
 
         h1 {
           font-size: 20px;
-          color: #555;
+          color: #ffffff;
         }
 
         .post {
@@ -319,6 +378,7 @@ $lightOrange: #abc1c4;
         display: flex;
         flex-direction: column;
         gap: 20px;
+        background-color: darkgray;
 
         input {
           padding: 10px;
@@ -351,7 +411,7 @@ $lightOrange: #abc1c4;
           flex-direction: column;
           justify-content: space-between;
           font-size: 12px;
-          color: #555;
+          color: #f0f0f0;
 
           h1{
             font-size: 20px;
@@ -386,10 +446,164 @@ $lightOrange: #abc1c4;
             display: flex;
             align-items: center;
             gap: 2px;
-            color: #292e2f;
+            color: #ffffff;
           }
         }
       }
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px){
+  
+  .app{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 1rem;
+    background-color: rgb(19, 19, 19);
+    height: 100px;
+    width: 60rem;
+  }
+  .container {
+
+background-color: #181818;
+    
+    }
+
+  .navbar {
+    background-color: #181818;
+    width: 100px;
+    .container {
+    
+      width: 960px;
+  
+      .logo {
+        img {
+          width: 120px;
+          margin-left: 2rem;
+        }
+      }
+  
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+       
+  
+        h6 {
+          font-size: 11px;
+          font-weight: 700;
+          transition:  transform 1s;
+          color: white;
+          position: relative;
+          overflow: hidden;
+        
+          &:hover {
+            color: #414141;
+            transform: scale(1);
+            
+            background-color: rgb(255, 255, 255);
+            border-radius: 15%;
+            animation: glow 1s infinite alternate; /* Added glow animation */
+          }
+        
+          @keyframes glow {
+            0% {
+              box-shadow: 0 0 0px #727070;
+            }
+            100% {
+              box-shadow: 0 0 10px #c0c0c0, 0 0 20px #dedddb, 0 0 30px #ffffff;
+            }
+          }
+        }
+        
+     #y11{
+              background-color: rgb(247, 247, 247);
+              height: 50px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 100%;
+              transition: 0.5s;
+              border: 1px solid white;
+     }
+     #y11:hover{
+      background-color: rgb(222, 18, 18);
+      height: 40px;
+      color: whitesmoke;
+      
+      border-radius: 40%;
+      border: 1px solid rgb(255, 253, 253);
+     }
+   
+    
+        .write { background-color: rgb(247, 247, 247);
+          height: 50px;
+          width: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100%;
+          transition: 0.5s;
+          border: 1px solid white;
+          &:hover {
+            background-color: rgb(32, 222, 18);
+            height: 40px;
+            color: whitesmoke;
+            border-radius: 40%;
+            border: 1px solid rgb(255, 249, 249);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

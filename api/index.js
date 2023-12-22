@@ -42,6 +42,7 @@ app.use("/api/posts", postRoutes);
 //   res.json("it works!")
 // })
 
+
 app.listen(8000, () => {
   console.log("Connected!");
 });

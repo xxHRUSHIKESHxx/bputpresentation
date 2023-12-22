@@ -24,7 +24,7 @@ const Menu = ({ cat }) => {
         <div className="post" key={post.id}>
           <img src={`../upload/${post?.img}`} alt="" />
           {/* ../upload/ */}
-          <h2>{post.title}</h2>
+          <h2 style={{color:"whitesmoke"}}>{post.title}</h2>
           <button>
             <a href={`/post/${post.id}`}>Read More</a>
           </button>

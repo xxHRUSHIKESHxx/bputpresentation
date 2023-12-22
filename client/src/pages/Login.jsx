@@ -32,8 +32,10 @@ const Login = () => {
   };
   return (
     <div className="auth">
-      <h1>Login</h1>
+    
       <form>
+      <h1>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Login</h1>
+    
         <input
           required
           type="text"
@@ -50,8 +52,8 @@ const Login = () => {
         />
         <button onClick={handleSubmit}>Login</button>
         {err && <p>{err}</p>}
-        <span>
-          Don't you have an account? <Link to="/register">Register</Link>
+        <span style={{color:"whitesmoke"}}>
+          Don't you have an account? <Link to="/register"><h4 style={{color:"whitesmoke"}}>Register</h4></Link>
         </span>
       </form>
     </div>
