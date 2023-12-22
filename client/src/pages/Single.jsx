@@ -92,7 +92,9 @@ const Single = () => {
         ></p>{" "}
       </div>
       <Menu cat={post.cat}  />
+     
     </div>
+    
   );
 };
 

@@ -9,8 +9,6 @@ import { AuthContext } from "../context/authContext";
 
 const Write = () => {
   const state = useLocation().state;
-  // const [value, setValue] = useState(state?.title || "");
-  // const [title, setTitle] = useState(state?.desc || "");
   const [value, setValue] = useState(state?.desc || "");
   const [title, setTitle] = useState(state?.value || "");
   const [file, setFile] = useState(null);
@@ -20,7 +18,6 @@ const Write = () => {
   const navigate = useNavigate();
 
   const { authToken } = useContext(AuthContext);
-  console.log(authToken);
 
   const upload = async () => {
     try {
@@ -41,29 +38,34 @@ const Write = () => {
     const requestBody = authToken;
     const imgUrl = await upload();
 
-    try {
-      state
-        ? await axios.put(`http://localhost:8000/api/posts/${state.id}`, {
-            title,
-            desc: value,
-            cat,
-            img: file ? imgUrl : "",
-            phone:phone !== null ? phone : null,
-            token: `${requestBody}`,
-          })
-        : await axios.post(`http://localhost:8000/api/posts/`, {
-            title,
-            desc: value,
-            cat,
-            img: file ? imgUrl : "",
-            date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-            phone:phone,
-            // data: { token: `${requestBody}` },
-            token: `${requestBody}`,
-          });
-      navigate("/");
-    } catch (err) {
-      console.log(err);
+    if (phone == null) {
+      alert("Please provide your phone number.");
+    } else {
+      try {
+        state
+          ? await axios.put(`http://localhost:8000/api/posts/${state.id}`, {
+              title,
+              desc: value,
+              cat,
+              img: file ? imgUrl : "",
+              phone: phone !== null ? phone : null,
+              token: `${requestBody}`,
+            })
+          : await axios.post(`http://localhost:8000/api/posts/`, {
+              title,
+              desc: value,
+              cat,
+              img: file ? imgUrl : "",
+              date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+              phone: phone,
+              // data: { token: `${requestBody}` },
+              token: `${requestBody}`,
+            });
+
+        navigate("/");
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
@@ -80,7 +82,7 @@ const Write = () => {
           <ReactQuill
             className="editor"
             theme="snow"
-            value={value == null ? '' : value}
+            value={value == null ? "" : value}
             // onChange={(e) => setValue(e.target.value)}
             onChange={setValue}
           />
@@ -113,6 +115,9 @@ const Write = () => {
           </label>
           <div className="buttons">
             <button>Save as a draft</button>
+            {/* <button onClick={phone == null ? null : handleClick}>
+              Publish
+            </button> */}
             <button onClick={handleClick}>Publish</button>
           </div>
         </div>

@@ -35,7 +35,7 @@ const Navbar = () => {
           <Link className="link" to="/?cat=healthcare">
             <h6>HEALTHCARE</h6>
           </Link>
-          <span style={{color:"white"}}>user({currentUser?.username})</span>
+          <span style={{color:"white"}}>{currentUser?.username}</span>
           {currentUser ? (
             <span onClick={logout} id="y11" >Logout</span>
           ) : (

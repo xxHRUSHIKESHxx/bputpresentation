@@ -14,7 +14,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const api = axios.create({
-    baseURL: 'http://localhost:8000/api/', // The base URL should match the proxy defined in package.json
+    baseURL: "http://localhost:8000/api/", // The base URL should match the proxy defined in package.json
   });
 
   const handleChange = (e) => {
@@ -24,15 +24,14 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     const res = await api.post("/auth/register",inputs);
-     console.log("showing catch block",res);
+      const res = await api.post("/auth/register", inputs);
+      console.log("showing catch block", res);
       navigate("/login");
     } catch (err) {
       setError(err.response.data);
-      console.log("showing error block",err);
+      console.log("showing error block", err);
     }
   };
-
 
   return (
     <div className="auth">
