@@ -22,7 +22,7 @@ export const AuthContexProvider = ({ children }) => {
 
     setCurrentUser(res.data?.user);
     setAuthToken(res.data?.token)
-    console.log(res.data?.token);
+    
   };
 
   const logout = async (inputs) => {

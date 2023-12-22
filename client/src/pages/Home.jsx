@@ -13,7 +13,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`/posts${cat}`);
-        console.log("fetched data and showing at home page")
+        // console.log("fetched data and showing at home page");
         setPosts(res.data);
       } catch (err) {
         console.log(err);
@@ -21,8 +21,10 @@ const Home = () => {
     };
     fetchData();
   }, [cat]);
+  // console.log(posts);
 
-
+  const reversedPostsData = posts.slice().reverse(); // Reversing the Posts to show the latest post in the DOM
+  // console.log(reversedPostsData);
 
   // const posts = [
   //   {
@@ -51,26 +53,26 @@ const Home = () => {
   //   },
   // ];
 
-  const getText = (html) =>{
-    const doc = new DOMParser().parseFromString(html, "text/html")
-    return doc.body.textContent
-  }
-
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  };
 
   return (
     <div className="home">
       <div className="posts">
-        {posts.map((post) => (
+        {reversedPostsData.map((post) => (
           <div className="post" key={post.id}>
             <div className="img">
-              <img src={`../upload/${post.img}`} alt="" />  
+              <img src={`../upload/${post.img}`} alt="" />
             </div>
             <div className="content">
-              <Link className="link" to={`/post/${post.id}`}>
-                <h1>{post.title}</h1>
-              </Link>
+              <h1>{post.title}</h1>
+
               <p>{getText(post.desc)}</p>
-              <button>Read More</button>
+              <Link className="link" to={`/post/${post.id}`}>
+                <button>Read More</button>
+              </Link>
             </div>
           </div>
         ))}
