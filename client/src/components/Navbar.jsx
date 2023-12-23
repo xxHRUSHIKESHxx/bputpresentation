@@ -15,7 +15,6 @@ const Navbar = () => {
           <Link to="/">
           <img src={newLogo} alt="" />
           </Link>
-          
         </div>
         <div className="links">
           <Link className="link" to="/?cat=education">
