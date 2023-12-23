@@ -36,12 +36,14 @@ const Write = () => {
     }
   };
 
-  const handleClick = async (e) => {
+ const handleClick = async (e) => {
     e.preventDefault();
     const requestBody = authToken;
     const imgUrl = await upload();
 
-    try {
+
+   try {
+
       state
         ? await axios.put(`http://localhost:8000/api/posts/${state.id}`, {
             title,
@@ -62,11 +64,12 @@ const Write = () => {
             token: `${requestBody}`,
           });
       navigate("/");
+      
     } catch (err) {
       console.log(err);
     }
-  };
-
+ 
+}
   return (
     <div className="add">
       <div className="content">
@@ -113,7 +116,7 @@ const Write = () => {
           </label>
           <div className="buttons">
             <button>Save as a draft</button>
-            <button onClick={handleClick}>Publish</button>
+            <button onClick= { phone == null ? null : handleClick}>Publish</button>
           </div>
         </div>
         <div className="item">
